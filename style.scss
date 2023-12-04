@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+@mixin flex($justify: center, $align: center, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+
+$color-purple: hsl(259, 100%, 65%);
+$color-light-red: hsl(0, 100%, 67%);
+
+$color-white: hsl(0, 0%, 100%);
+$color-off-white: hsl(0, 0%, 94%);
+$color-light-grey: hsl(0, 0%, 86%);
+$color-smokey-grey: hsl(0, 1%, 44%);
+$color-off-black: hsl(0, 0%, 8%);
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $color-light-grey;
+}
+
+.calculator {
+    @include flex(flex-start, stretch, column);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    max-width: 600px;
+    padding: 45px 20px;
+    border-radius: 10px;
+    background-color: $color-white;
+    border-bottom-right-radius: 30%;
+
+    &--row {
+        @include flex(flex-start, center, row);
+
+
+        &--date {
+            @include flex(flex-start, flex-start, column);
+
+            gap: 10px;
+            color: $color-off-black;
+
+            & input {
+                min-width: 50px;
+                width: auto;
+                max-width: 80px;
+                height: 50px;
+                padding: 5px;
+                border: 1px solid $color-light-grey;
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                border-radius: 10px;
+                text-align: start;
+                padding: 14px;
+            }
+
+            & :first-child {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: $color-smokey-grey;
+            }
+
+            & :last-child {
+                font-size: 0.7rem;
+                font-weight: 400;
+                font-style: italic;
+            }
+
+        }
+
+        &--date.alert {
+            color: $color-light-red;
+
+            & input {
+                border: 1px solid $color-light-red;
+            }
+
+        }
+    }
+
+    &--divider {
+        position: relative;
+        @include flex(center, center, row);
+        width: 100%;
+        height: 100px;
+
+        &>hr {
+            width: 100%;
+            margin: 10px 0;
+            border: none;
+            border-top: 1.5px solid $color-light-grey;
+        }
+
+        &--action {
+            border-radius: 50%;
+            background-color: $color-purple;
+            width: 60px;
+            height: 60px;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            & img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    &--result {
+        @include flex(center, flex-start, column);
+        gap: 5px;
+
+        &--item {
+            @include flex(flex-start, center, row);
+            gap: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+            font-style: italic;
+
+            & span {
+                font-size: inherit;
+            }
+
+            &--date{
+                color: $color-purple;
+            }
+        }
+    }
+}
