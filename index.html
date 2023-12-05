@@ -8,27 +8,27 @@
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
         <link rel="stylesheet" href="./style.css" />
-        <script defer src="./script.js" ></script>
+        <script defer src="./script.js"></script>
         <title>Frontend Mentor | Age calculator app</title>
     </head>
     <body>
         <main>
             <section class="calculator">
                 <div class="calculator--row">
-                    <div class="calculator--row--date ">
+                    <div class="calculator--row--date">
                         <span>DAY</span>
-                        <input id="date-day" type="number" placeholder="DD"/>
-                        <span class="calculator--row--date--message">This field is </span>
+                        <input id="date-day" type="text" placeholder="DD" maxlength="2"/>
+                        <span class="calculator--row--date--message"> </span>
                     </div>
                     <div class="calculator--row--date">
                         <span class="">MONTH</span>
-                        <input id="date-month" type="number" placeholder="MM" />
+                        <input id="date-month" type="text" placeholder="MM" maxlength="2"/>
                         <span class="calculator--row--date--message"></span>
                     </div>
                     <div class="calculator--row--date">
                         <span class="">YEAR</span>
-                        <input id="date-year" type="number" placeholder="YYYY" />
-                        <span class="calculator--row--date--message">This field is requerid</span>
+                        <input id="date-year" type="text" placeholder="YYYY" maxlength="4"/>
+                        <span class="calculator--row--date--message"></span>
                     </div>
                 </div>
                 <div class="calculator--divider">
@@ -39,15 +39,15 @@
                 </div>
                 <div class="calculator--result">
                     <div class="calculator--result--item">
-                        <span class="calculator--result--item--date">38</span>
+                        <span id="result-date-year" class="calculator--result--item--date">--</span>
                         <span>years</span>
                     </div>
                     <div class="calculator--result--item">
-                        <span class="calculator--result--item--date">--</span>
+                        <span id="result-date-month" class="calculator--result--item--date">--</span>
                         <span>months</span>
                     </div>
                     <div class="calculator--result--item">
-                        <span class="calculator--result--item--date">--</span>
+                        <span id="result-date-day" class="calculator--result--item--date">--</span>
                         <span>days</span>
                     </div>
                 </div>
